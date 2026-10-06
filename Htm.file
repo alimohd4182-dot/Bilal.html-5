@@ -1,1 +1,875 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+    <meta charset="UTF-8">
+
+    <!-- Responsive Website -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Student Registration Form</title>
+
+    <style>
+
+        /* ---------- BODY ---------- */
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, Helvetica, sans-serif;
+
+            /* Gradient Background */
+            background: linear-gradient(
+                135deg,
+                #667eea,
+                #764ba2,
+                #ff758c,
+                #ff7eb3
+            );
+
+            min-height: 100vh;
+        }
+
+        /* ---------- HEADER ---------- */
+
+        header {
+            background: #111827;
+            color: white;
+            text-align: center;
+            padding: 25px;
+        }
+
+        header h1 {
+            margin: 5px;
+            font-size: 35px;
+            color: #38bdf8;
+        }
+
+        header p {
+            color: #d1d5db;
+            font-size: 16px;
+        }
+
+        /* ---------- NAVIGATION ---------- */
+
+        nav {
+            background: #1f2937;
+            text-align: center;
+            padding: 15px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 20px;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            color: #38bdf8;
+        }
+
+        /* ---------- MAIN CONTAINER ---------- */
+
+        .container {
+            width: 85%;
+            max-width: 1000px;
+            margin: 35px auto;
+
+            background: rgba(255, 255, 255, 0.96);
+
+            padding: 35px;
+
+            border-radius: 20px;
+
+            box-shadow:
+                0 15px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        /* ---------- TITLE ---------- */
+
+        .form-title {
+            text-align: center;
+            color: #4f46e5;
+            font-size: 30px;
+        }
+
+        .description {
+            text-align: center;
+            color: #555;
+            margin-bottom: 30px;
+        }
+
+        /* ---------- FIELDSET ---------- */
+
+        fieldset {
+            border: 2px solid #6366f1;
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 25px;
+        }
+
+        legend {
+            background: #6366f1;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-weight: bold;
+        }
+
+        /* ---------- FORM ELEMENTS ---------- */
+
+        label {
+            display: block;
+            margin-top: 15px;
+            margin-bottom: 7px;
+            font-weight: bold;
+            color: #374151;
+        }
+
+        input,
+        select,
+        textarea {
+            width: 100%;
+            padding: 12px;
+            box-sizing: border-box;
+
+            border: 1px solid #cbd5e1;
+            border-radius: 7px;
+
+            font-size: 15px;
+
+            outline: none;
+        }
+
+        input:focus,
+        select:focus,
+        textarea:focus {
+            border-color: #6366f1;
+
+            box-shadow:
+                0 0 5px rgba(99, 102, 241, 0.5);
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        /* ---------- TWO COLUMN ---------- */
+
+        .row {
+            display: flex;
+            gap: 20px;
+        }
+
+        .column {
+            flex: 1;
+        }
+
+        /* ---------- RADIO & CHECKBOX ---------- */
+
+        .options {
+            margin-top: 10px;
+        }
+
+        .options label {
+            display: inline-block;
+            margin-right: 20px;
+            font-weight: normal;
+        }
+
+        .options input {
+            width: auto;
+            margin-right: 5px;
+        }
+
+        /* ---------- TABLE ---------- */
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th,
+        td {
+            border: 1px solid #cbd5e1;
+            padding: 12px;
+            text-align: center;
+        }
+
+        th {
+            background: #6366f1;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background: #f3f4f6;
+        }
+
+        /* ---------- FILE INPUT ---------- */
+
+        input[type="file"] {
+            background: #f8fafc;
+            padding: 10px;
+        }
+
+        /* ---------- RANGE ---------- */
+
+        input[type="range"] {
+            width: 100%;
+        }
+
+        /* ---------- BUTTONS ---------- */
+
+        .buttons {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        button {
+            padding: 14px 30px;
+            border: none;
+            border-radius: 8px;
+            margin: 8px;
+
+            font-size: 16px;
+            font-weight: bold;
+
+            cursor: pointer;
+        }
+
+        .submit-btn {
+            background: #16a34a;
+            color: white;
+        }
+
+        .submit-btn:hover {
+            background: #15803d;
+        }
+
+        .reset-btn {
+            background: #dc2626;
+            color: white;
+        }
+
+        .reset-btn:hover {
+            background: #b91c1c;
+        }
+
+        .preview-btn {
+            background: #2563eb;
+            color: white;
+        }
+
+        .preview-btn:hover {
+            background: #1d4ed8;
+        }
+
+        /* ---------- FOOTER ---------- */
+
+        footer {
+            background: #111827;
+            color: white;
+            text-align: center;
+            padding: 25px;
+            margin-top: 40px;
+        }
+
+        footer a {
+            color: #38bdf8;
+        }
+
+        /* ---------- RESPONSIVE ---------- */
+
+        @media (max-width: 700px) {
+
+            .container {
+                width: 90%;
+                padding: 20px;
+            }
+
+            .row {
+                flex-direction: column;
+                gap: 0;
+            }
+
+            nav a {
+                display: block;
+                margin: 10px;
+            }
+
+            header h1 {
+                font-size: 27px;
+            }
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+    <!-- ================= HEADER ================= -->
+
+    <header>
+
+        <h1>🎓 Student Registration Portal</h1>
+
+        <p>
+            Welcome to our Online Student Registration System
+        </p>
+
+    </header>
+
+
+    <!-- ================= NAVIGATION ================= -->
+
+    <nav>
+
+        <a href="#home">Home</a>
+
+        <a href="#registration">Registration</a>
+
+        <a href="#courses">Courses</a>
+
+        <a href="#contact">Contact</a>
+
+    </nav>
+
+
+    <!-- ================= MAIN CONTENT ================= -->
+
+    <main class="container" id="registration">
+
+        <h2 class="form-title">
+            Student Registration Form
+        </h2>
+
+        <p class="description">
+            Please fill in all the required information carefully.
+        </p>
+
+
+        <!-- ================= FORM ================= -->
+
+        <form action="#" method="post" enctype="multipart/form-data">
+
+
+            <!-- PERSONAL INFORMATION -->
+
+            <fieldset>
+
+                <legend>1. Personal Information</legend>
+
+
+                <div class="row">
+
+                    <div class="column">
+
+                        <label for="fname">
+                            First Name *
+                        </label>
+
+                        <input
+                            type="text"
+                            id="fname"
+                            name="fname"
+                            placeholder="Enter your first name"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="column">
+
+                        <label for="lname">
+                            Last Name *
+                        </label>
+
+                        <input
+                            type="text"
+                            id="lname"
+                            name="lname"
+                            placeholder="Enter your last name"
+                            required
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <div class="row">
+
+                    <div class="column">
+
+                        <label for="dob">
+                            Date of Birth *
+                        </label>
+
+                        <input
+                            type="date"
+                            id="dob"
+                            name="dob"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="column">
+
+                        <label for="age">
+                            Age
+                        </label>
+
+                        <input
+                            type="number"
+                            id="age"
+                            name="age"
+                            min="10"
+                            max="100"
+                            placeholder="Enter age"
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <label>
+                    Gender *
+                </label>
+
+                <div class="options">
+
+                    <label>
+                        <input
+                            type="radio"
+                            name="gender"
+                            value="male"
+                            required
+                        >
+                        Male
+                    </label>
+
+                    <label>
+                        <input
+                            type="radio"
+                            name="gender"
+                            value="female"
+                        >
+                        Female
+                    </label>
+
+                    <label>
+                        <input
+                            type="radio"
+                            name="gender"
+                            value="other"
+                        >
+                        Other
+                    </label>
+
+                </div>
+
+
+                <label for="blood">
+                    Blood Group
+                </label>
+
+                <select id="blood" name="blood">
+
+                    <option value="">
+                        -- Select Blood Group --
+                    </option>
+
+                    <option>A+</option>
+                    <option>A-</option>
+                    <option>B+</option>
+                    <option>B-</option>
+                    <option>O+</option>
+                    <option>O-</option>
+                    <option>AB+</option>
+                    <option>AB-</option>
+
+                </select>
+
+            </fieldset>
+
+
+            <!-- CONTACT INFORMATION -->
+
+            <fieldset>
+
+                <legend>2. Contact Information</legend>
+
+
+                <div class="row">
+
+                    <div class="column">
+
+                        <label for="email">
+                            Email Address *
+                        </label>
+
+                        <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            placeholder="example@gmail.com"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="column">
+
+                        <label for="phone">
+                            Mobile Number *
+                        </label>
+
+                        <input
+                            type="tel"
+                            id="phone"
+                            name="phone"
+                            placeholder="Enter mobile number"
+                            pattern="[0-9]{10}"
+                            required
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <label for="website">
+                    Personal Website
+                </label>
+
+                <input
+                    type="url"
+                    id="website"
+                    name="website"
+                    placeholder="https://example.com"
+                >
+
+
+                <label for="address">
+                    Complete Address *
+                </label>
+
+                <textarea
+                    id="address"
+                    name="address"
+                    placeholder="Enter your complete address"
+                    required
+                ></textarea>
+
+
+                <div class="row">
+
+                    <div class="column">
+
+                        <label for="city">
+                            City
+                        </label>
+
+                        <input
+                            type="text"
+                            id="city"
+                            name="city"
+                            placeholder="Enter city"
+                        >
+
+                    </div>
+
+
+                    <div class="column">
+
+                        <label for="state">
+                            State
+                        </label>
+
+                        <select id="state" name="state">
+
+                            <option>Select State</option>
+
+                            <option>Uttar Pradesh</option>
+                            <option>Delhi</option>
+                            <option>Maharashtra</option>
+                            <option>Bihar</option>
+                            <option>Rajasthan</option>
+                            <option>Madhya Pradesh</option>
+                            <option>Gujarat</option>
+                            <option>West Bengal</option>
+                            <option>Punjab</option>
+                            <option>Other</option>
+
+                        </select>
+
+                    </div>
+
+                </div>
+
+
+                <label for="pincode">
+                    PIN Code
+                </label>
+
+                <input
+                    type="text"
+                    id="pincode"
+                    name="pincode"
+                    placeholder="Enter PIN code"
+                    maxlength="6"
+                >
+
+            </fieldset>
+
+
+            <!-- EDUCATION -->
+
+            <fieldset>
+
+                <legend>3. Educational Information</legend>
+
+
+                <label for="qualification">
+                    Highest Qualification
+                </label>
+
+                <select
+                    id="qualification"
+                    name="qualification"
+                >
+
+                    <option>Select Qualification</option>
+
+                    <option>10th</option>
+
+                    <option>12th</option>
+
+                    <option>Diploma</option>
+
+                    <option>Graduation</option>
+
+                    <option>Post Graduation</option>
+
+                </select>
+
+
+                <label for="school">
+                    School / College Name
+                </label>
+
+                <input
+                    type="text"
+                    id="school"
+                    name="school"
+                    placeholder="Enter institution name"
+                >
+
+
+                <div class="row">
+
+                    <div class="column">
+
+                        <label for="year">
+                            Passing Year
+                        </label>
+
+                        <input
+                            type="number"
+                            id="year"
+                            name="year"
+                            min="2000"
+                            max="2035"
+                            placeholder="2026"
+                        >
+
+                    </div>
+
+
+                    <div class="column">
+
+                        <label for="percentage">
+                            Percentage
+                        </label>
+
+                        <input
+                            type="number"
+                            id="percentage"
+                            name="percentage"
+                            min="0"
+                            max="100"
+                            step="0.01"
+                            placeholder="Enter percentage"
+                        >
+
+                    </div>
+
+                </div>
+
+            </fieldset>
+
+
+            <!-- COURSE INFORMATION -->
+
+            <fieldset id="courses">
+
+                <legend>4. Course Selection</legend>
+
+
+                <label for="course">
+                    Select Course *
+                </label>
+
+                <select
+                    id="course"
+                    name="course"
+                    required
+                >
+
+                    <option value="">
+                        -- Select Course --
+                    </option>
+
+                    <option>BCA</option>
+
+                    <option>BBA</option>
+
+                    <option>B.Com</option>
+
+                    <option>B.Sc</option>
+
+                    <option>BA</option>
+
+                    <option>MCA</option>
+
+                    <option>MBA</option>
+
+                </select>
+
+
+                <label>
+                    Select Your Skills
+                </label>
+
+
+                <div class="options">
+
+                    <label>
+                        <input
+                            type="checkbox"
+                            name="skills"
+                            value="html"
+                        >
+                        HTML
+                    </label>
+
+                    <label>
+                        <input
+                            type="checkbox"
+                            name="skills"
+                            value="css"
+                        >
+                        CSS
+                    </label>
+
+                    <label>
+                        <input
+                            type="checkbox"
+                            name="skills"
+                            value="javascript"
+                        >
+                        JavaScript
+                    </label>
+
+                    <label>
+                        <input
+                            type="checkbox"
+                            name="skills"
+                            value="python"
+                        >
+                        Python
+                    </label>
+
+                    <label>
+                        <input
+                            type="checkbox"
+                            name="skills"
+                            value="java"
+                        >
+                        Java
+                    </label>
+
+                </div>
+
+
+                <label for="startdate">
+                    Preferred Course Start Date
+                </label>
+
+                <input
+                    type="date"
+                    id="startdate"
+                    name="startdate"
+                >
+
+            </fieldset>
+
+
+            <!-- DOCUMENTS -->
+
+            <fieldset>
+
+                <legend>5. Upload Documents</legend>
+
+
+                <label for="photo">
+                    Upload Passport Size Photo
+                </label>
+
+                <input
+                    type="file"
+                    id="photo"
+                    name="photo"
+                    accept="image/*"
+                >
+
+
+                <label for="document">
+                    Upload Marksheet / Certificate
+                </label>
+
+                <input
+                    type="file"
+                    id="document"
+                    name="document"
+                    accept=".pdf,.doc,.docx"
+                >
+
+            </fieldset>
+
+
+            <!-- EXTRA INFORMATION -->
+
+            <fieldset>
+
+                <legend>6. Additional Information</legend>
+
+
+                <label for="favcolor">
+                    Favorite Color
+                </label>
+
+                <input
+                    type="color"
+                    id="favcolor"
+                    name="favcolor"
+          
